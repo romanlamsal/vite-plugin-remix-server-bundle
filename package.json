@@ -1,0 +1,43 @@
+{
+  "name": "@lamsal-de/vite-plugin-remix-server-bundle",
+  "type": "module",
+  "private": false,
+  "version": "0.0.3",
+  "description": "",
+  "exports": {
+    ".": {
+      "default": "./src/plugin.ts",
+      "types": "./src/plugin.ts"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.7",
+    "@lamsal-de/eslint-config": "^2.0.23",
+    "@types/express": "^4.17.21",
+    "esbuild": "^0.23.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@lamsal-de"
+    ]
+  },
+  "prettier": "@lamsal-de/eslint-config/prettier",
+  "dependencies": {
+    "@remix-run/express": "^2.10.3",
+    "express": "^4.19.2"
+  },
+  "peerDependencies": {
+    "esbuild": "*",
+    "vite": "*"
+  }
+}
