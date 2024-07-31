@@ -1,6 +1,6 @@
 # vite-plugin-remix-server-bundle
 
-Use this plugin to create a `build/server.js` when building your app which can be executed via `node build/server.js`,
+Use this plugin to create a `build/server.js` when building your app which can be executed via `PORT=1234 node build/server.js`,
 without installing any deps first.
 
 ## Install
@@ -11,28 +11,22 @@ pnpm add @lamsal-de/vite-plugin-remix-server-bundle
 
 ## Usage
 
-Add the plugin to your `vite.config.ts`, given it's remix, this is the minimal config:
+Add the plugin to your `vite.config.ts`. After building via vite, you can run your `build/server.js` file 
+**by setting the PORT env variable first**. 
+
+Given you are using remix, this is the minimal config:
 
 ```ts
 import { vitePlugin as remix } from "@remix-run/dev"
 import { defineConfig } from "vite"
-import tsconfigPaths from "vite-tsconfig-paths"
-import remixServerBundle from "@lamsal-de/vite-plugin-remix-server-bundle"
+import { remixServerBundle } from "@lamsal-de/vite-plugin-remix-server-bundle"
 
 export default defineConfig({
     plugins: [
-        remix({
-            future: {
-                v3_fetcherPersist: true,
-                v3_relativeSplatPath: true,
-                v3_throwAbortReason: true,
-            },
-        }),
-        tsconfigPaths(),
+        remix(),
         remixServerBundle()
     ],
 })
-
 ```
 
 ## How
