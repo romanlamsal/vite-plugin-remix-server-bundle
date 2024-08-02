@@ -3,8 +3,15 @@
     "strict": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "lib": ["ESNext"],
-    "target": "ESNext"
+    "lib": ["ESNext", "es2020"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"]
+  "include": ["**/*.ts"]
 }

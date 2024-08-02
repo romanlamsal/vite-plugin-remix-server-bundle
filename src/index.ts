@@ -1,6 +1,5 @@
 import { existsSync } from "node:fs"
 import { join } from "node:path"
-import { fileURLToPath } from "node:url"
 import { build } from "esbuild"
 import { PluginOption } from "vite"
 
@@ -50,10 +49,10 @@ if (process.env.PORT) {
                     name: "manual-express",
                     setup(build) {
                         build.onResolve({ filter: /^express(\/*)$/ }, args => ({
-                            path: fileURLToPath(import.meta.resolve(args.path)),
+                            path: require.resolve(args.path),
                         }))
                         build.onResolve({ filter: /^@remix-run\/express(\/*)$/ }, args => ({
-                            path: fileURLToPath(import.meta.resolve(args.path)),
+                            path: require.resolve(args.path),
                         }))
                     },
                 },
@@ -61,5 +60,3 @@ if (process.env.PORT) {
         })
     },
 })
-
-export default remixServerBundle
